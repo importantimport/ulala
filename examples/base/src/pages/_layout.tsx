@@ -1,22 +1,30 @@
-import '../styles.css';
+import type { ReactNode } from 'react'
 
-import type { ReactNode } from 'react';
+import { Footer } from '../components/footer'
+import { Header } from '../components/header'
+import '../styles.css'
 
-import { Header } from '../components/header';
-import { Footer } from '../components/footer';
+interface RootLayoutProps { children: ReactNode }
 
-type RootLayoutProps = { children: ReactNode };
+const getData = async () => {
+  const data = {
+    description: 'An internet website!',
+    icon: '/images/favicon.png',
+  }
 
-export default async function RootLayout({ children }: RootLayoutProps) {
-  const data = await getData();
+  return data
+}
+
+const RootLayout = async ({ children }: RootLayoutProps) => {
+  const data = await getData()
 
   return (
     <html>
       <head></head>
       <body>
         <div className="font-['Nunito']">
-          <meta property="description" content={data.description} />
-          <link rel="icon" type="image/png" href={data.icon} />
+          <meta content={data.description} property="description" />
+          <link href={data.icon} rel="icon" type="image/png" />
           <Header />
           <main className="m-6 flex items-center *:min-h-64 *:min-w-64 lg:m-0 lg:min-h-svh lg:justify-center">
             {children}
@@ -25,20 +33,14 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         </div>
       </body>
     </html>
-  );
+  )
 }
 
-const getData = async () => {
-  const data = {
-    description: 'An internet website!',
-    icon: '/images/favicon.png',
-  };
+export default RootLayout
 
-  return data;
-};
-
+// eslint-disable-next-line react-refresh/only-export-components
 export const getConfig = async () => {
   return {
     render: 'static',
-  };
-};
+  }
+}

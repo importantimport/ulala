@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "strict": true,
     "target": "esnext",
-    "downlevelIteration": true,
-    "esModuleInterop": true,
+    "jsx": "react-jsx",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "skipLibCheck": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
     "types": ["react/experimental"],
-    "jsx": "react-jsx"
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   }
 }

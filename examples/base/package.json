@@ -3,8 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "waku dev",
     "build": "waku build",
+    "dev": "waku dev",
     "start": "waku start"
   },
   "dependencies": {

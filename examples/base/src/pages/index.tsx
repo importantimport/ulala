@@ -1,9 +1,19 @@
-import { Link } from 'waku';
+import { Link } from 'waku'
 
-import { Counter } from '../components/counter';
+import { Counter } from '../components/counter'
 
-export default async function HomePage() {
-  const data = await getData();
+const getData = async () => {
+  const data = {
+    body: 'Hello world!',
+    headline: 'Waku',
+    title: 'Waku',
+  }
+
+  return data
+}
+
+const HomePage = async () => {
+  const data = await getData()
 
   return (
     <div>
@@ -11,25 +21,18 @@ export default async function HomePage() {
       <h1 className="text-4xl font-bold tracking-tight">{data.headline}</h1>
       <p>{data.body}</p>
       <Counter />
-      <Link to="/about" className="mt-4 inline-block underline">
+      <Link className="mt-4 inline-block underline" to="/about">
         About page
       </Link>
     </div>
-  );
+  )
 }
 
-const getData = async () => {
-  const data = {
-    title: 'Waku',
-    headline: 'Waku',
-    body: 'Hello world!',
-  };
+export default HomePage
 
-  return data;
-};
-
+// eslint-disable-next-line react-refresh/only-export-components
 export const getConfig = async () => {
   return {
     render: 'static',
-  };
-};
+  }
+}
