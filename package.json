@@ -1,0 +1,6 @@
+{
+  "name": "@u-la-la/monorepo",
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@9.10.0"
+}
